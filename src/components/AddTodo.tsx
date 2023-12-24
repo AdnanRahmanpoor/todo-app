@@ -7,15 +7,26 @@ interface AddTodoProps {
 const AddTodo: React.FC<AddTodoProps> = ({ addTodo }) => {
   const [text, setText] = useState('');
 
+  const [errorMessage, setErrorMessage] = useState('');
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    addTodo(text);
-    setText('');
+
+    if (text.trim() !== '') {
+      addTodo(text);
+      setText('');
+      setErrorMessage('');
+    } else {
+      setErrorMessage('Please add a todo');
+    }
   };
 
   return (
     <div className='container'>
-      <form onSubmit={handleSubmit} className='mx-auto my-4 d-flex justify-content-center'>
+      <form
+        onSubmit={handleSubmit}
+        className='mx-auto my-4 d-flex justify-content-center'
+      >
         <input
           type='text'
           value={text}
@@ -27,6 +38,11 @@ const AddTodo: React.FC<AddTodoProps> = ({ addTodo }) => {
           Add Todo
         </button>
       </form>
+      {errorMessage && (
+        <p style={{ color: 'red' }} className='d-block text-center'>
+          {errorMessage}
+        </p>
+      )}
     </div>
   );
 };
