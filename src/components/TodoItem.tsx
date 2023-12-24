@@ -12,16 +12,26 @@ const TodoItem: React.FC<TodoItemProps> = ({
   deleteTodo,
 }) => {
   return (
-    <div>
-      <input
-        type='checkbox'
-        checked={todo.completed}
-        onChange={() => toggleTodo(todo.id)}
-      />
-      <span style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
-        {todo.text}
-      </span>
-      <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+    <div className='card my-2'>
+      <div className='card-body'>
+        <input
+          type='checkbox'
+          checked={todo.completed}
+          onChange={() => toggleTodo(todo.id)}
+        />
+        <span
+          style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
+          className='m-3'
+        >
+          {todo.text}
+        </span>
+        <button
+          onClick={() => deleteTodo(todo.id)}
+          className='btn btn-danger btn-sm float-right'
+        >
+          Delete
+        </button>
+      </div>
     </div>
   );
 };

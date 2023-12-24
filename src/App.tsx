@@ -23,11 +23,14 @@ const App: React.FC = () => {
   };
 
   return (
-    <>
-      <div>Todo App</div>
-      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
+    <div className='container'>
+      <div className='d-flex align-items-center flex-column mt-4'>
+
+      <h1>Todo App</h1>
       <AddTodo addTodo={addTodo} />
-    </>
+      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
+      </div>
+    </div>
   );
 };
 

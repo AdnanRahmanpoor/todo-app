@@ -20,6 +20,7 @@ const TodoList: React.FC<TodoListProps> = ({
           todo={todo}
           toggleTodo={toggleTodo}
           deleteTodo={deleteTodo}
+          
         />
       ))}
     </div>
