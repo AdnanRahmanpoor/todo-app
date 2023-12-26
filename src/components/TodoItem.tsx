@@ -27,16 +27,14 @@ const TodoItem: React.FC<TodoItemProps> = ({
   };
 
   return (
-    <div className='card my-2'>
+    <div className='card my-2 align-content-center justify-content-center' style={{ width: '380px', height: '70px' }}>
       <div className='card-body'>
         {isEditing ? (
-          // eslint-disable-next-line react/style-prop-object
           <div
             className='d-flex flex-row
            align-items-center justify-content-between'
-            style={{ width: '30rem', height: '2rem' }}
           >
-            <div className='flex-grow-1 m-2'>
+            <div className='m-2'>
               <input
                 type='text'
                 value={editedText}
@@ -45,19 +43,13 @@ const TodoItem: React.FC<TodoItemProps> = ({
               />
             </div>
             <div className=''>
-              <button
-                onClick={handleSave}
-                className='btn btn-success'
-              >
+              <button onClick={handleSave} className='btn btn-success'>
                 Save
               </button>
             </div>
           </div>
         ) : (
-          <div
-            className='d-flex flex-row justify-content-between align-items-center'
-            style={{ width: '30rem', height: '2rem' }}
-          >
+          <div className='d-flex flex-row justify-content-between align-items-center'>
             <div>
               <input
                 type='checkbox'
@@ -74,10 +66,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
               </span>
             </div>
             <div>
-              <button
-                onClick={handleEdit}
-                className='btn btn-warning mx-2'
-              >
+              <button onClick={handleEdit} className='btn btn-warning mx-2'>
                 Edit
               </button>
               <button

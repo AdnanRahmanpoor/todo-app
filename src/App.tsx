@@ -43,7 +43,7 @@ const App: React.FC = () => {
 
   return (
     <div className='container'>
-      <div className='d-flex align-items-center flex-column mt-4'>
+      <div className='d-flex align-items-center justify-content-center flex-column mt-4'>
         <h1>Todo App</h1>
         <AddTodo addTodo={addTodo} />
         <TodoList
