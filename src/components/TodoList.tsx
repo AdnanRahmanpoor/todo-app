@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Todo from '../Todo';
 import TodoItem from './TodoItem';
 
@@ -12,11 +13,18 @@ const TodoList: React.FC<TodoListProps> = ({
   todos,
   toggleTodo,
   deleteTodo,
-  editTodo
+  editTodo,
 }) => {
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
+
   return (
     <div>
-      {todos.map((todo) => (
+      {todos.length === 0 ? (
+        <p>No todos to display, add some to view it here</p>
+      ) : (
+      todos.map((todo) => (
         <TodoItem
           key={todo.id}
           todo={todo}
@@ -24,7 +32,8 @@ const TodoList: React.FC<TodoListProps> = ({
           deleteTodo={deleteTodo}
           editTodo={editTodo}
         />
-      ))}
+      ))
+      )}
     </div>
   );
 };
