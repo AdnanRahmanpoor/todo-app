@@ -22,13 +22,23 @@ const App: React.FC = () => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
+  const editTodo = (id: number, newText: string) => {
+    setTodos(
+      todos.map((todo) => (todo.id === id ? { ...todo, text: newText } : todo)),
+    );
+  };
+
   return (
     <div className='container'>
       <div className='d-flex align-items-center flex-column mt-4'>
-
-      <h1>Todo App</h1>
-      <AddTodo addTodo={addTodo} />
-      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
+        <h1>Todo App</h1>
+        <AddTodo addTodo={addTodo} />
+        <TodoList
+          todos={todos}
+          toggleTodo={toggleTodo}
+          deleteTodo={deleteTodo}
+          editTodo={editTodo}
+        />
       </div>
     </div>
   );
