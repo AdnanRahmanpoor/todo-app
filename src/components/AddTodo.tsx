@@ -32,9 +32,9 @@ const AddTodo: React.FC<AddTodoProps> = ({ addTodo }) => {
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder='Add a new Todo'
-          className='form-control d-inline w-50'
+          className='form-control d-inline w-75'
         />
-        <button className='btn btn-primary mx-2 w-15' type='submit'>
+        <button className='btn btn-primary mx-2 w-auto' type='submit'>
           Add Todo
         </button>
       </form>
